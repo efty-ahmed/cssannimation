@@ -229,9 +229,39 @@ header {
   justify-content: center;
 }
 .choose_section h1 {
-  font-weight: 900;
+  /* font-weight: 900; */
   margin: 2rem 0;
+  font-size: 4em;
+  color: transparent;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    to left,
+    #2ecc71,
+    #3498db,
+    #9b59b6,
+    #f39c12
+  );
+
+  -webkit-background-clip: text;
+
+  animation: animate_2 4s linear infinite;
+  -webkit-background-size: 500%;
+  background-size: 500%;
 }
+@keyframes animate_2 {
+  0% {
+    background-position: 0 100%;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 100%;
+  }
+}
+
 .choose_section p {
   margin-bottom: 2rem;
 }
@@ -321,4 +351,58 @@ header {
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
   color: rgb(17, 16, 16);
   background-color: rgb(193, 74, 204);
+}
+/* text animation */
+.text_animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.text_animation h2 {
+  position: relative;
+  font-size: 6vw;
+  color: white;
+  -webkit-text-stroke: 0.3vw #383d52;
+  text-transform: uppercase;
+}
+.text_animation h2::before {
+  content: attr(data_text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #01fe87;
+  -webkit-text-stroke: 0vw #383d52;
+  border-right: 2px solid #01fe87;
+  overflow: hidden;
+  animation: animate_3 4s linear infinite;
+}
+
+@keyframes animate_3 {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
+/* risponsiv for mobile devisse */
+@media screen and (max-width: 576px) {
+  .wallpaper {
+    flex-direction: column;
+  }
+  .card {
+    margin-bottom: 50px;
+  }
+}
+/* risponsive for tab */
+@media screen and (min-width: 576px) and (max-width: 992px) {
+  .card {
+    margin-right: 20px;
+  }
 }
